@@ -51,6 +51,18 @@ Notes:
 - The JDK needed for packaging (Temurin 21) is downloaded automatically by Gradle.
 - Turn on automatic lessons **from the installed app**. A schedule turned on during development (`gradlew run`) uses a script tied to the `build` folder and stops working after a clean.
 
+## Releases
+
+Publishing a GitHub release with a tag like `v1.2.0` runs `.github/workflows/release.yml`, which:
+
+- adds release notes generated from the changes since the previous release,
+- builds a signed Android APK and attaches it as `Streakingo-1.2.0.apk`,
+- builds the Windows installer and attaches it as `Streakingo-1.2.0.exe`.
+
+The version shown in the app, the Android `versionCode` and the installer versions all come from the tag. Locally you can pass it with `-PappVersion=1.2.0`.
+
+Android release signing reads these repository secrets: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`. For local release builds, put the same values in a `keystore.properties` file at the project root (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`); it is ignored by git.
+
 ## GitHub Actions
 
 `.github/workflows/streak.yml` does 1 lesson every day at 09:00 UTC, so it works even when your computer is off.

@@ -1,5 +1,6 @@
 package com.noydra.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.runtime.Composable
@@ -38,6 +40,9 @@ import com.noydra.QR_PREFIX
 import com.noydra.REPO_URL
 import com.noydra.i18n.I18n
 import com.noydra.i18n.t
+import com.noydra.resources.Res
+import com.noydra.resources.logo
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun Dialogs(state: AppState) {
@@ -115,7 +120,8 @@ private fun SettingsDialog(state: AppState, onClose: () -> Unit) {
 private fun AboutDialog(state: AppState, onBack: () -> Unit) {
     Modal(onBack, maxWidth = 380.dp) {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            AppText("🔥", 44, fontFamily = FontFamily.Default)
+            Image(painterResource(Res.drawable.logo), contentDescription = null, modifier = Modifier.size(72.dp))
+            Spacer(Modifier.height(10.dp))
             AppText("Streakingo", 24, bold = true)
             AppText(t("about.version", "version" to APP_VERSION), 12, color = Colors.muted)
             Spacer(Modifier.height(12.dp))

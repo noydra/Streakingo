@@ -9,7 +9,10 @@ import androidx.compose.ui.window.rememberWindowState
 import com.noydra.data.Storage
 import com.noydra.desktop.DesktopPlatform
 import com.noydra.desktop.dataDir
+import com.noydra.resources.Res
+import com.noydra.resources.logo
 import com.noydra.ui.App
+import org.jetbrains.compose.resources.painterResource
 import kotlinx.coroutines.runBlocking
 import java.awt.Dimension
 import kotlin.system.exitProcess
@@ -29,6 +32,7 @@ fun main(args: Array<String>) {
         Window(
             onCloseRequest = ::exitApplication,
             title = "Streakingo",
+            icon = painterResource(Res.drawable.logo),
             state = rememberWindowState(size = DpSize(500.dp, 860.dp)),
         ) {
             window.minimumSize = Dimension(420, 640)

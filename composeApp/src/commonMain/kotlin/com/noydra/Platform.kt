@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.noydra.data.Storage
 
-const val APP_VERSION = "1.0.0"
 const val DEVELOPER = "noydra"
 const val DEVELOPER_URL = "https://github.com/noydra"
 const val REPO_URL = "https://github.com/noydra/Streakingo"
