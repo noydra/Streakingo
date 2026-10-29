@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
 }
 
-val appVersion: String = (findProperty("appVersion") as String?)?.trim()?.removePrefix("v") ?: "1.0.0"
+val appVersion: String = (findProperty("appVersion") as String?)?.trim()?.removePrefix("v") ?: "1.0.1"
 require(Regex("""[1-9]\d*\.\d+\.\d+""").matches(appVersion)) {
     "appVersion must look like 1.2.3, got '$appVersion'"
 }
